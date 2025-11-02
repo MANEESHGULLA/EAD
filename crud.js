@@ -1,3 +1,14 @@
+#models/student.js
+const mongoose = require("mongoose");
+const studentSchema = mongoose.Schema({
+  name: String,
+  age: Number,
+});
+
+module.exports = mongoose.model("Student", studentSchema);
+
+
+#server.js
 const express = require("express");
 const mongoose = require("mongoose");
 const Student = require("./models/student.js"); // ✅ Capital S
@@ -56,3 +67,4 @@ app.delete("/students/:id", async (req, res) => {
 app.listen(3000, () => {
   console.log("Server started on port 3000");
 });
+
