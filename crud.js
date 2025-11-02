@@ -11,7 +11,7 @@ module.exports = mongoose.model("Student", studentSchema);
 #server.js
 const express = require("express");
 const mongoose = require("mongoose");
-const Student = require("./models/student.js"); // ✅ Capital S
+const Student = require("./models/student.js"); 
 const cors = require("cors");
 
 const app = express();
@@ -28,7 +28,7 @@ mongoose
 // CREATE
 app.post("/students", async (req, res) => {
   const studentData = req.body;
-  const newStudent = new Student(studentData); // ✅ Capital S
+  const newStudent = new Student(studentData);
   await newStudent.save();
   res.status(201).send(newStudent);
 });
@@ -67,4 +67,5 @@ app.delete("/students/:id", async (req, res) => {
 app.listen(3000, () => {
   console.log("Server started on port 3000");
 });
+
 
